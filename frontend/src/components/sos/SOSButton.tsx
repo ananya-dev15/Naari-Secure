@@ -91,7 +91,7 @@ const SOSButton = () => {
     <>
       {/* SOS Active Banner */}
       {isSosActive && (
-        <div className="fixed top-0 left-0 right-0 z-[100] bg-red-600 text-white py-4 px-4 flex flex-col md:flex-row items-center justify-center gap-3 animate-pulse shadow-lg">
+        <div className="fixed top-0 md:top-16 left-0 right-0 z-[100] bg-red-600 text-white py-4 px-4 flex flex-col md:flex-row items-center justify-center gap-3 animate-pulse shadow-lg">
           <div className="flex items-center gap-2">
             <AlertTriangle className="w-6 h-6 fill-white text-red-600" />
             <span className="font-bold text-lg">SOS ACTIVE - HELP ON THE WAY</span>

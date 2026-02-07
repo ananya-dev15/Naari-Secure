@@ -13,7 +13,7 @@ const DesktopNav = () => {
 
   const navItems = [
     { label: t('home'), path: '/' },
-    { label: t('features'), path: '/travel', hidden: user?.role === 'guardian' },
+    { label: t('Travel Mode'), path: '/travel', hidden: user?.role === 'guardian' },
     { label: t('safeZones'), path: '/safe-zones' },
 
     { label: t('profile'), path: '/profile' },
