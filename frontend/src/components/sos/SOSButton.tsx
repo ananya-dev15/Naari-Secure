@@ -33,7 +33,7 @@ const SOSButton = () => {
   const cancelSOS = async () => {
     try {
       const token = localStorage.getItem('token');
-      await fetch('http://localhost:5001/api/sos/cancel', {
+      await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/sos/cancel`, {
         method: 'POST',
         headers: { Authorization: `Bearer ${token}` }
       });
@@ -62,7 +62,7 @@ const SOSButton = () => {
       setLoading(true);
       const token = localStorage.getItem('token');
       console.log("[SOS TRIGGER] Dispatching request (NO LOCATION) with token...");
-      const response = await fetch('http://localhost:5001/api/sos/trigger', {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/sos/trigger`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -60,7 +60,7 @@ export default function RiskMap() {
     // Fetch risk areas from backend
     useEffect(() => {
         if (showRiskLayer) {
-            axios.get("http://localhost:5001/api/map/map-data")
+            axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/map/map-data`)
                 .then(res => setAreas(res.data))
                 .catch(err => console.error("Error fetching map data:", err));
         }

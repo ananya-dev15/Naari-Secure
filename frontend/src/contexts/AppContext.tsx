@@ -214,7 +214,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       // Call API
       const token = localStorage.getItem('token');
       if (token) {
-        const res = await fetch('http://localhost:5001/api/travel/start', {
+        const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/travel/start`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -255,7 +255,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     try {
       const token = localStorage.getItem('token');
       if (token) {
-        const res = await fetch('http://localhost:5001/api/travel/extend', {
+        const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/travel/extend`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -286,7 +286,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     try {
       const token = localStorage.getItem('token');
       if (token) {
-        const res = await fetch('http://localhost:5001/api/travel/acknowledge-delay', {
+        const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/travel/acknowledge-delay`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -313,7 +313,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     try {
       const token = localStorage.getItem('token');
       if (token && completed) { // Only call stop if completed safely, if SOS it's handled differently
-        const res = await fetch('http://localhost:5001/api/travel/stop', {
+        const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/travel/stop`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -353,7 +353,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
       const triggerBackend = async (lat?: number, lng?: number) => {
         try {
-          const res = await fetch('http://localhost:5001/api/sos/trigger', {
+          const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/sos/trigger`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -462,7 +462,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         const token = localStorage.getItem('token');
         if (token) {
           try {
-            await fetch('http://localhost:5001/api/auth/update-status', {
+            await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/auth/update-status`, {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
@@ -477,7 +477,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
             // --- LIVE RISK UPDATER ---
             if (state.isTravelModeOn) {
               try {
-                const riskRes = await fetch('http://localhost:5001/api/risk/score', {
+                const riskRes = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/risk/score`, {
                   method: 'POST',
                   headers: {
                     'Content-Type': 'application/json',
@@ -509,7 +509,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
                     variant: "destructive"
                   });
 
-                  await fetch('http://localhost:5001/api/sos/notify-risk', {
+                  await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/sos/notify-risk`, {
                     method: 'POST',
                     headers: {
                       'Content-Type': 'application/json',

@@ -20,7 +20,7 @@ const GuardianInvite = () => {
             }
 
             try {
-                const res = await fetch('http://localhost:5001/api/auth/accept-invite', {
+                const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/auth/accept-invite`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ token })

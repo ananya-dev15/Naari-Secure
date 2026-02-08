@@ -78,7 +78,7 @@ const useAudioRecorder = () => {
 
                 try {
                     console.log("[AUDIO] Uploading to backend...");
-                    const res = await fetch('http://localhost:5001/api/sos/upload-audio', {
+                    const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/sos/upload-audio`, {
                         method: 'POST',
                         headers: {
                             'Authorization': `Bearer ${token}`

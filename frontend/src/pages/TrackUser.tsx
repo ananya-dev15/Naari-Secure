@@ -43,7 +43,7 @@ const TrackUser = ({ id: propId }: { id?: string }) => {
 
     const fetchWardData = async () => {
         try {
-            const res = await fetch('http://localhost:5001/api/guardian/sos-status', {
+            const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/guardian/sos-status`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             const data = await res.json();
@@ -200,7 +200,7 @@ const TrackUser = ({ id: propId }: { id?: string }) => {
                                                     {trip.audioFile && (
                                                         <button
                                                             onClick={() => {
-                                                                const audio = new Audio(`http://localhost:5001/uploads/audio/${trip.audioFile}`);
+                                                                const audio = new Audio(`${import.meta.env.VITE_API_BASE_URL}/uploads/audio/${trip.audioFile}`);
                                                                 audio.play().catch(e => console.error("History audio play failed", e));
                                                             }}
                                                             className="mt-1 p-1 bg-primary/10 rounded-full text-primary hover:bg-primary/20 transition-colors"
@@ -241,7 +241,7 @@ const TrackUser = ({ id: propId }: { id?: string }) => {
                                                     {log.audioFile && (
                                                         <button
                                                             onClick={() => {
-                                                                const audio = new Audio(`http://localhost:5001/uploads/audio/${log.audioFile}`);
+                                                                const audio = new Audio(`${import.meta.env.VITE_API_BASE_URL}/uploads/audio/${log.audioFile}`);
                                                                 audio.play().catch(e => console.error("SOS log audio play failed", e));
                                                             }}
                                                             className="p-1.5 bg-red-600 rounded-full text-white hover:bg-red-700 transition-colors shadow-sm"
@@ -320,7 +320,7 @@ const TrackUser = ({ id: propId }: { id?: string }) => {
                                                 <audio
                                                     controls
                                                     className="h-8 max-w-[200px]"
-                                                    src={`http://localhost:5001/uploads/audio/${ward.currentSOSAudioFile}`}
+                                                    src={`${import.meta.env.VITE_API_BASE_URL}/uploads/audio/${ward.currentSOSAudioFile}`}
                                                 />
                                             </div>
                                         )}

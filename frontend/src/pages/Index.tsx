@@ -40,7 +40,7 @@ const Index = () => {
   // Fetch Full User Data (including contacts/wards)
   const fetchUserData = async () => {
     try {
-      const res = await fetch('http://localhost:5001/api/auth/me', {
+      const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/auth/me`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       const data = await res.json();
@@ -57,7 +57,7 @@ const Index = () => {
   // Fetch Wards for Guardian
   const fetchWards = async () => {
     try {
-      const res = await fetch('http://localhost:5001/api/guardian/sos-status', {
+      const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/guardian/sos-status`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       const data = await res.json();
@@ -111,7 +111,7 @@ const Index = () => {
     if (!inviteCode) return;
     setLoading(true);
     try {
-      const res = await fetch('http://localhost:5001/api/guardian/accept-invite', {
+      const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/guardian/accept-invite`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -183,7 +183,7 @@ const Index = () => {
                             <audio
                               controls
                               className="h-8 w-full filter brightness-90 saturate-150"
-                              src={`http://localhost:5001/uploads/audio/${ward.currentSOSAudioFile}`}
+                              src={`${import.meta.env.VITE_API_BASE_URL}/uploads/audio/${ward.currentSOSAudioFile}`}
                             />
                           </div>
                         </div>
@@ -514,7 +514,7 @@ const Index = () => {
                                     {history.audioFile && (
                                       <button
                                         onClick={() => {
-                                          const audio = new Audio(`http://localhost:5001/uploads/audio/${history.audioFile}`);
+                                          const audio = new Audio(`${import.meta.env.VITE_API_BASE_URL}/uploads/audio/${history.audioFile}`);
                                           audio.play().catch(e => console.error("History audio play failed", e));
                                         }}
                                         className="p-1 px-2 bg-primary/10 rounded-full text-primary hover:bg-primary/20 transition-colors flex items-center gap-1 text-[9px] font-black uppercase italic"

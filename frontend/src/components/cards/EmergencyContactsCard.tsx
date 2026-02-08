@@ -22,7 +22,7 @@ const EmergencyContactsCard = () => {
 
   const fetchContacts = async () => {
     try {
-      const res = await fetch('http://localhost:5001/api/auth/me', {
+      const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/auth/me`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       const data = await res.json();
@@ -44,7 +44,7 @@ const EmergencyContactsCard = () => {
 
     setIsSubmitting(true);
     try {
-      const res = await fetch('http://localhost:5001/api/auth/add-contact', {
+      const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/auth/add-contact`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

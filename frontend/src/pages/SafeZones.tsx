@@ -51,7 +51,7 @@ const SafeZones = () => {
   useEffect(() => {
     if (user?.role === 'guardian' && token) {
       setFetchingWards(true);
-      fetch('http://localhost:5001/api/guardian/sos-status', {
+      fetch(`${import.meta.env.VITE_API_BASE_URL}/api/guardian/sos-status`, {
         headers: { Authorization: `Bearer ${token}` }
       })
         .then(res => res.json())

@@ -112,7 +112,7 @@ const Signup = () => {
                 frequentPlaces
             };
 
-            const response = await fetch('http://localhost:5001/api/auth/signup', {
+            const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/auth/signup`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

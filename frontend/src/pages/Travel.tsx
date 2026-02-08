@@ -72,7 +72,7 @@ const Travel = () => {
     const token = localStorage.getItem('token');
     if (token) {
       try {
-        const res = await fetch('http://localhost:5001/api/auth/me', {
+        const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/auth/me`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         const data = await res.json();
@@ -325,7 +325,7 @@ const Travel = () => {
                             e.stopPropagation();
                             if (window.confirm("Delete this place?")) {
                               const token = localStorage.getItem('token');
-                              fetch(`http://localhost:5001/api/auth/delete-place/${place._id}`, {
+                              fetch(`${import.meta.env.VITE_API_BASE_URL}/api/auth/delete-place/${place._id}`, {
                                 method: 'DELETE',
                                 headers: { Authorization: `Bearer ${token}` }
                               }).then(res => res.json()).then(data => setFrequentPlaces(data));
@@ -392,7 +392,7 @@ const Travel = () => {
                           if (!newPlaceName || !currentLoc) return;
                           const token = localStorage.getItem('token');
                           try {
-                            const res = await fetch('http://localhost:5001/api/auth/add-place', {
+                            const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/auth/add-place`, {
                               method: 'PUT',
                               headers: {
                                 'Content-Type': 'application/json',
