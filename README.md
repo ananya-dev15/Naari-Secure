@@ -68,7 +68,7 @@ cd Naari-Secure
 # Install dependencies
 npm install
 
-<img width="1891" height="870" alt="image" src="https://github.com/user-attachments/assets/40ee112d-51a9-4de4-ac17-078b01fde6bb" />
+![image](https://github.com/user-attachments/assets/40ee112d-51a9-4de4-ac17-078b01fde6bb)
 <img width="1893" height="882" alt="image" src="https://github.com/user-attachments/assets/1d54ecfe-02f3-48db-8adb-92d1300a03e0" />
 <img width="1895" height="880" alt="image" src="https://github.com/user-attachments/assets/41360245-1725-435e-ae39-1d82cd15f7fb" />
 <img width="1899" height="877" alt="image" src="https://github.com/user-attachments/assets/345c3cf6-2a7a-476d-89c5-0921486c49fe" />
